@@ -1,0 +1,52 @@
+task(1) UnitTests {
+    #Private members
+    data   foo = int
+    future zee = int
+
+    #Shared members
+    shared sha = int
+
+    init: {
+        output = "Init State Works\n"
+
+        foo = 42
+        #assert check foo in compiled cpp for 42
+
+        -->bar
+    }
+
+    bar: {
+        output = "State Transition Works\n"
+
+        temp: {
+            clone: {
+                output "Transition in Cloned Tasks Works\n"
+                yield 99
+            }
+
+            output = "Internal State Declerations Work\n"
+            -->clone
+        }
+
+        zee = temp
+        #assert check zee in compiled cpp for 99
+
+        output = "Future Members Work\n"
+
+        -->tar(zee)
+    }
+
+    tar(future param = int): {
+        #assert check param in compiled cpp for 99
+
+        output = "Parametered Transition Works\n"
+
+        sha = foo
+        #assert check sha in compiled cpp for 42
+
+        output = "Shared Members Work\n"
+
+        finish
+    }
+
+}
