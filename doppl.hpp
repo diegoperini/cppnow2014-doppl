@@ -10,7 +10,7 @@
 #include "doppl_shared_member.hpp"
 
 template<int range, typename F>
-int doppl_run(F task_body) {
+inline int doppl_run(F task_body) {
 	//Task group
     std::array< std::future<int> , range> task_list;
 
