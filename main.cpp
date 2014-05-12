@@ -82,7 +82,7 @@ int doppl_main() {
         tar.set([&] (auto& yield, auto& next, auto& finish, FM<int> param) {
             assert(param.get() == 99);
 
-            output.set("Parametered Transition Works\n");
+            output.set("Parameterized Transition Works\n");
 
             //Shared Members test
             sha.set(foo);

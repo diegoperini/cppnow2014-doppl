@@ -39,7 +39,7 @@ task(1) UnitTests {
     tar(future param = int): {
         #assert check param in compiled cpp for 99
 
-        output = "Parametered Transition Works\n"
+        output = "Parameterized Transition Works\n"
 
         sha = foo
         #assert check sha in compiled cpp for 42
