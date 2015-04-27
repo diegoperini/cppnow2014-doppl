@@ -20,7 +20,7 @@ task(1) UnitTests {
 
         temp: {
             clone: {
-                output "Transition in Cloned Tasks Works\n"
+                output = "Transition in Cloned Tasks Works\n"
                 yield 99
             }
 
